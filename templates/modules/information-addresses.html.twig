@@ -1,0 +1,40 @@
+<section class="block-information">
+
+    <div class="block">
+
+        <p><strong>De :</strong></p>
+        <h3>Origine Cycles</h3>
+        <p>
+            638 Rue Léonard de Vinci,<br>
+            ZA La Renaissance<br>
+            59490 Somain (France)
+        </p>
+        <p>
+            Tel : 03 27 88 10 10<br>
+            Email : contact@origine-cycles.com
+        </p>
+
+    </div>
+
+    <div class="block">
+
+        <p><strong>A l'attention de :</strong></p>
+        {% if company %}
+        <h3>{{ company }}</h3>
+        {% else %}
+        <h3>{{ lastname }} {{ firstname }}</h3>
+        {% endif %}
+        <p>
+            {{ billing_address }},<br>
+            {% if billing_address2 is defined %}{{ billing_address2 }}{% endif %}<br>
+            {{ billing_zipcode }} {{ billing_city }} ({{ billing_country }})
+        </p>
+        <p>
+            Tel : {% if phone is defined %}{{ phone }}{% endif %}
+            <br>
+            Email : {% if email is defined %}{{ email }}{% endif %}
+        </p>
+    
+    </div>
+
+</section>

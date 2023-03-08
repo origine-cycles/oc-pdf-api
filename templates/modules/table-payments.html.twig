@@ -1,0 +1,47 @@
+<table>
+    <thead>
+        <tr>
+            <th>{{ txt.label }}</th>
+            <th>{{ txt.payment_type }}</th>
+            <th>{{ txt.payment_status }}</th>
+            <th>Date</th>
+            <th class="txt-right">P.U HT.</th>
+            <th class="txt-right">TVA</th>
+            <th class="txt-right">P.U TTC.</th>
+            <th class="txt-right">Total TTC.</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% set currency = '€' %}
+    {% for payment in payments %}
+        {% set currency = payment['currency'] %}
+        <tr>
+            <td>{{ txt.deposit }} n°{{ payment['id'] }}</td>
+            <td>{{ payment['type'] }}</td>
+            <td>{{ payment['status'] }}</td>
+            <td>{{ payment['date'] }}</td>
+            <td class="txt-right">{{ payment['amount_without_vat'] }}</td>
+            <td class="txt-right">{{ payment['percent_vat'] }}%</td>
+            <td class="txt-right">{{ payment['amount_total'] }}</td>
+            <td class="txt-right">{{ payment['amount_total'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<div class="other-pages"></div>
+<p class="txt-right">
+    <strong>Total TVA :</strong> {{ amount_vat }} &nbsp;
+    <strong>Total HT :</strong> {{ amount_without_vat }}<br>
+    <strong>Total TTC :</strong> {{ amount_total }}<br>
+    {% if balance is not same as(null)  %}
+        <strong>{{ txt.balance_after_payment }} :</strong> 
+        {% if balance == 0 %}
+            <span class="vert">Soldé (0 {{ currency }})</span>
+        {% elseif balance < 0 %}
+            <span class="rouge">{{ balance }} {{ currency }}</span>
+        {% elseif balance > 0 %}
+            <span class="orange">{{ balance }} {{ currency }}</span>
+        {% endif %}
+        <br>
+    {% endif %}
+</p>

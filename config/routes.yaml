@@ -1,0 +1,18 @@
+# No use of annotations here
+# controllers:
+#     resource: ../src/Api/Mail/Controller/
+#     type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+oc_pdf_generate:
+    path: /v1/pdf/generate
+    controller: App\Api\Pdf\Controller\PdfController::generate
+    methods: POST
+
+oc_pdf_get:
+    path: /v1/pdf/get
+    controller: App\Api\Pdf\Controller\PdfController::getDocument
+    methods: GET

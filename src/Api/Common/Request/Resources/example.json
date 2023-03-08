@@ -1,0 +1,19 @@
+{
+    "templateName": "example",
+    "templateId": [
+        {"fr": 6},
+        {"nl": 8}
+    ],
+    "type": "email",
+    "language": "fr",
+    "content":[
+        ["firstname", "prenom"],
+        ["lastname", "nom"],
+        [ "orders", 
+            [
+                ["order_id", "commande_id"],
+                ["amount", { "path":"montant", "optional": true }]
+            ]
+        ]
+    ]
+}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ document_title }}{% endblock %}
+
+{% block body %}
+
+{% include 'includes/header-pdf.html.twig' %}
+
+{% include 'modules/information-addresses.html.twig' %}
+
+<section class="block-information">
+
+    <div class="block">
+        <strong>Commande :</strong> n° {{ order_id }} du {{ order_date }}<br>
+        <strong>Facture :</strong>{% if billing_id is defined and billing_id %}
+            n° {{ billing_id }}
+        {% else %}
+            Payable à réception
+        {% endif %}
+    </div>
+    <div class="block">
+        <strong>Compte client :</strong> {% if user_id is defined %}n° {{ user_id }}{% else %}NC{% endif %}<br>
+        <strong>Libellé :</strong> {{ order_type }} - {{ order_label }}
+    </div>
+
+    <div class="other-pages"></div>
+
+    {% include 'modules/table-payments.html.twig' %}
+    
+    <div class="other-pages"></div>
+</section>
+
+{% include 'includes/footer-pdf.html.twig' %}
+{% endblock %}

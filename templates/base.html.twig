@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta content="text/html" charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Configurateur{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <style>
+                *{
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .txt-center{
+                    text-align: center;
+                }
+                .txt-left{
+                    text-align: left;
+                }
+                .txt-right{
+                    text-align: right;
+                }
+
+                table {
+                    width: 100%;
+                    border: 1px solid #000;
+                    page-break-inside : auto;
+                }
+
+                table thead {
+                    background: #f2f6f7;
+                    font-weight: bold;
+                    border-bottom: 1px solid #000;
+                }
+
+                table tbody tr {
+                    border-bottom: 1px solid grey;
+                }
+
+                table tr th, table tr td{
+                    padding: 0 0.1cm;
+                    border-right: 1px solid #000;
+                }
+
+                .block-information {
+                    margin: 0 auto;
+                    display: block;
+                    padding-top: 0.5cm;
+                }
+
+                .block-information .block {
+                    display: inline-block;
+                    width: 45%;
+                }
+
+                .block-information .block:first-child {
+                    margin-right: 5%;
+                }
+
+                .orange{
+                    color:#FF8F35;
+                }
+                .rouge{
+                    color:#FF0000;
+                }
+                .vert{
+                    color:#003300;
+                }
+
+            </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+</html>

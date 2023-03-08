@@ -1,0 +1,42 @@
+{
+    "resourceName": "payment-summary",
+    "templateName": "payment-summary",
+    "language": "fr",
+    "content":{
+        "23": ["document_name", { "path":"nom_document", "optional": true }],
+        "21": ["document_title", "titre_document"],
+        "22": ["document_number", "numero_document"],
+        "payments": [
+            ["id", "paiement_id"],
+            ["date", "paiement_date"],
+            ["type", "paiement_type"],
+            ["status", "paiement_statut"],
+            ["currency", "paiement_devise"],
+            ["percent_vat", "pourcent_tva"],
+            ["amount_vat", "montant_tva"],
+            ["amount_without_vat", "montant_ht"],
+            ["amount_total", "montant_ttc"]
+        ],
+        "20": ["user_id", { "path":"client_id", "optional": true }],
+        "0": ["firstname", { "path":"prenom", "optional": true }],
+        "1": ["lastname", { "path":"nom", "optional": true }],
+        "2": ["phone", { "path":"telephone", "optional": true }],
+        "3": ["email", { "path":"email", "optional": true }],
+        "4": ["company", { "path":"raison_sociale", "optional": true }],
+        "19": ["billing_id", { "path":"facture_id", "optional": true }],
+        "5": ["billing_address", "facturation_adresse"],
+        "6": ["billing_address2", { "path":"facturation_complement", "optional": true }],
+        "7": ["billing_zipcode", "facturation_cp"],
+        "8": ["billing_city", "facturation_ville"],
+        "9": ["billing_country", "facturation_pays"],
+        "10": ["order_label", "commande_libelle"],
+        "11": ["order_type", "commande_type"],
+        "12": ["order_date", "commande_date"],
+        "13": ["order_id", "commande_id"],
+        "15": ["amount_total", "montant_ttc"],
+        "16": ["amount_vat", "montant_tva"],
+        "17": ["amount_without_vat", "montant_ht"],
+        "18": ["document_date", "date_document"],
+        "24": ["balance", {"path": "solde", "optional": true}]
+    }
+}
