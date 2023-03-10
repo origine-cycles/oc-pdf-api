@@ -15,7 +15,8 @@
             ["percent_vat", "pourcent_tva"],
             ["amount_vat", "montant_tva"],
             ["amount_without_vat", "montant_ht"],
-            ["amount_total", "montant_ttc"]
+            ["amount_total", "montant_ttc"],
+            ["transaction_type", "transaction_type"]
         ],
         "20": ["user_id", { "path":"client_id", "optional": true }],
         "0": ["firstname", { "path":"prenom", "optional": true }],
@@ -37,6 +38,7 @@
         "16": ["amount_vat", "montant_tva"],
         "17": ["amount_without_vat", "montant_ht"],
         "18": ["document_date", "date_document"],
-        "24": ["balance", {"path": "solde", "optional": true}]
+        "24": ["balance", {"path": "solde", "optional": true}],
+        "25": ["deposit_or_credit", {"path": "deposit_or_credit", "optional": true}]
     }
 }

@@ -2,15 +2,16 @@
 
     <div class="block">
 
-        <p><strong>De :</strong></p>
+        <p><strong>{{ txt.from }} :</strong></p>
         <h3>Origine Cycles</h3>
         <p>
             638 Rue Léonard de Vinci,<br>
             ZA La Renaissance<br>
             59490 Somain (France)
+            {% if (billing_zipcode ~ billing_city ~ billing_country)|length > 36 %} <br><br> {% endif %}
         </p>
         <p>
-            Tel : 03 27 88 10 10<br>
+            {{ txt.phone }} : 03 27 88 10 10<br>
             Email : contact@origine-cycles.com
         </p>
 
@@ -18,7 +19,7 @@
 
     <div class="block">
 
-        <p><strong>A l'attention de :</strong></p>
+        <p><strong>{{ txt.toTheAttentionOf }} :</strong></p>
         {% if company %}
         <h3>{{ company }}</h3>
         {% else %}
@@ -30,7 +31,7 @@
             {{ billing_zipcode }} {{ billing_city }} ({{ billing_country }})
         </p>
         <p>
-            Tel : {% if phone is defined %}{{ phone }}{% endif %}
+            {{ txt.phone }} : {% if phone is defined %}{{ phone }}{% endif %}
             <br>
             Email : {% if email is defined %}{{ email }}{% endif %}
         </p>

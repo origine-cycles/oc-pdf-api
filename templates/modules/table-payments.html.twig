@@ -16,7 +16,14 @@
     {% for payment in payments %}
         {% set currency = payment['currency'] %}
         <tr>
-            <td>{{ txt.deposit }} n°{{ payment['id'] }}</td>
+            <td>
+            {% if payment['transaction_type'] == 'CREDIT' %}
+                {{ txt.creditPayment }} 
+            {% else %}
+                {{ txt.depositPayment }} 
+            {% endif %}
+                n°{{ payment['id'] }}
+            </td>
             <td>{{ payment['type'] }}</td>
             <td>{{ payment['status'] }}</td>
             <td>{{ payment['date'] }}</td>
@@ -32,7 +39,17 @@
 <p class="txt-right">
     <strong>Total TVA :</strong> {{ amount_vat }} &nbsp;
     <strong>Total HT :</strong> {{ amount_without_vat }}<br>
-    <strong>Total TTC :</strong> {{ amount_total }}<br>
+    <strong>
+        Total TTC 
+        {% if deposit_or_credit is defined %}
+            {% if deposit_or_credit == 'CREDIT' %}
+                {{ txt.toCredit }}
+            {% elseif deposit_or_credit == 'DEPOSIT' %}
+                {{ txt.wasPaid }}
+            {% endif %}
+        {% endif %} 
+        :
+    </strong> {{ amount_total }}<br>
     {% if balance is not same as(null)  %}
         <strong>{{ txt.balance_after_payment }} :</strong> 
         {% if balance == 0 %}
