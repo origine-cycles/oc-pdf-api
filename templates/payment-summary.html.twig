@@ -11,16 +11,16 @@
 <section class="block-information">
 
     <div class="block">
-        <strong>Commande :</strong> n° {{ order_id }} du {{ order_date }}<br>
-        <strong>Facture :</strong>{% if billing_id is defined and billing_id %}
+        <strong>{{ txt.order }} :</strong> n° {{ order_id }} {{ txt.of }} {{ order_date }}<br>
+        <strong>{{ txt.invoice }} :</strong>{% if billing_id is defined and billing_id %}
             n° {{ billing_id }}
         {% else %}
-            Payable à réception
+            {{ txt.payable_upon_receipt }}
         {% endif %}
     </div>
     <div class="block">
-        <strong>Compte client :</strong> {% if user_id is defined %}n° {{ user_id }}{% else %}NC{% endif %}<br>
-        <strong>Libellé :</strong> {{ order_type }} - {{ order_label }}
+        <strong>{{ txt.customer_account }} :</strong> {% if user_id is defined %}n° {{ user_id }}{% else %}NC{% endif %}<br>
+        <strong>{{ txt.label }} :</strong> {{ order_type }} - {{ order_label }}
     </div>
 
     <div class="other-pages"></div>

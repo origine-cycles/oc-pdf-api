@@ -5,10 +5,10 @@
             <th>{{ txt.payment_type }}</th>
             <th>{{ txt.payment_status }}</th>
             <th>Date</th>
-            <th class="txt-right">P.U HT.</th>
-            <th class="txt-right">TVA</th>
-            <th class="txt-right">P.U TTC.</th>
-            <th class="txt-right">Total TTC.</th>
+            <th class="txt-right">P.U {{ txt.df }}.</th>
+            <th class="txt-right">{{ txt.vat }}</th>
+            <th class="txt-right">P.U {{ txt.ati }}.</th>
+            <th class="txt-right">Total {{ txt.ati }}.</th>
         </tr>
     </thead>
     <tbody>
@@ -37,10 +37,10 @@
 </table>
 <div class="other-pages"></div>
 <p class="txt-right">
-    <strong>Total TVA :</strong> {{ amount_vat }} &nbsp;
-    <strong>Total HT :</strong> {{ amount_without_vat }}<br>
+    <strong>Total {{ txt.vat }} :</strong> {{ amount_vat }} &nbsp;
+    <strong>Total {{ txt.df }} :</strong> {{ amount_without_vat }}<br>
     <strong>
-        Total TTC 
+        Total {{ txt.ati }} 
         {% if deposit_or_credit is defined %}
             {% if deposit_or_credit == 'CREDIT' %}
                 {{ txt.toCredit }}
@@ -53,7 +53,7 @@
     {% if balance is not same as(null)  %}
         <strong>{{ txt.balance_after_payment }} :</strong> 
         {% if balance == 0 %}
-            <span class="vert">Soldé (0 {{ currency }})</span>
+            <span class="vert">{{ txt.paid }} (0 {{ currency }})</span>
         {% elseif balance < 0 %}
             <span class="rouge">{{ balance }} {{ currency }}</span>
         {% elseif balance > 0 %}
